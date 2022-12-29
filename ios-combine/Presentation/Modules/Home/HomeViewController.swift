@@ -7,9 +7,10 @@
 
 import Foundation
 import UIKit
+import Combine
 
-final class HomeViewController: ViewController {
-
+final class HomeViewController: UIViewController {
+    private var cancellables = Set<AnyCancellable>()
     var viewModel: HomeViewModelProtocol!
 
     override func viewDidLoad() {
@@ -25,6 +26,15 @@ final class HomeViewController: ViewController {
     }
 
     func setupBindings() {
-
+        viewModel.$response
+                    .receive(on: DispatchQueue.main)
+                    .sink(receiveValue: { (response) in
+                        //self.label.text = response.message
+                    })
+                    .store(in: &cancellables)
     }
+}
+
+struct Response: Codable {
+    let message: String
 }

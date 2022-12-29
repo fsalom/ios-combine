@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combine
 
-final class HomeViewModel: HomeViewModelProtocol {
+final class PostsViewModel: ObservableObject {
+    @Published private(set) var response: Response?
+
     var infoUpdated: (() -> Void)?
 
     let router: HomeRouterProtocol
@@ -26,5 +29,18 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
 
     func viewDidDisappear() {
+    }
+
+    func fetch() {
+        let url = URL(string: "https://example.com/api/data")!
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: Response.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: { (completion) in
+                // Maneja cualquier error o compleción aquí
+            }, receiveValue: { [weak self] (response) in
+                self?.response = response
+            })
+            .store(in: &cancellables)
     }
 }
