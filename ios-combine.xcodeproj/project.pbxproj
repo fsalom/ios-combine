@@ -18,6 +18,12 @@
 		C1120361295C9312002DFF3A /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1120360295C9312002DFF3A /* HomeProtocols.swift */; };
 		C1120363295C931C002DFF3A /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1120362295C931C002DFF3A /* HomeRouter.swift */; };
 		C1120365295C932C002DFF3A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1120364295C932C002DFF3A /* HomeViewController.xib */; };
+		C128CA77295EFDF500F1F192 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA76295EFDF500F1F192 /* HomeBuilder.swift */; };
+		C128CA82295F009800F1F192 /* DataResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA7A295F009800F1F192 /* DataResponseDTO.swift */; };
+		C128CA83295F009800F1F192 /* CryptoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA7B295F009800F1F192 /* CryptoDTO.swift */; };
+		C128CA84295F009800F1F192 /* CryptoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA7D295F009800F1F192 /* CryptoRepository.swift */; };
+		C128CA85295F009800F1F192 /* CryptoNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA7F295F009800F1F192 /* CryptoNetworkClient.swift */; };
+		C128CA8F295F00BE00F1F192 /* CryptoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA8C295F00BE00F1F192 /* CryptoUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		C1120360295C9312002DFF3A /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		C1120362295C931C002DFF3A /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		C1120364295C932C002DFF3A /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C128CA76295EFDF500F1F192 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		C128CA7A295F009800F1F192 /* DataResponseDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResponseDTO.swift; sourceTree = "<group>"; };
+		C128CA7B295F009800F1F192 /* CryptoDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDTO.swift; sourceTree = "<group>"; };
+		C128CA7D295F009800F1F192 /* CryptoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoRepository.swift; sourceTree = "<group>"; };
+		C128CA7F295F009800F1F192 /* CryptoNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoNetworkClient.swift; sourceTree = "<group>"; };
+		C128CA8C295F00BE00F1F192 /* CryptoUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,8 @@
 		C109EF9029523AAB00FC266C /* ios-combine */ = {
 			isa = PBXGroup;
 			children = (
+				C128CA87295F00BE00F1F192 /* Domain */,
+				C128CA78295F009800F1F192 /* Data */,
 				C1120366295C942A002DFF3A /* Resources */,
 				C1120358295C92D2002DFF3A /* Presentation */,
 				C1120355295C92C2002DFF3A /* DI */,
@@ -115,6 +129,7 @@
 				C1120360295C9312002DFF3A /* HomeProtocols.swift */,
 				C1120362295C931C002DFF3A /* HomeRouter.swift */,
 				C1120364295C932C002DFF3A /* HomeViewController.xib */,
+				C128CA76295EFDF500F1F192 /* HomeBuilder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -128,6 +143,57 @@
 				C109EF9F29523AAB00FC266C /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C128CA78295F009800F1F192 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA79295F009800F1F192 /* DTO */,
+				C128CA7C295F009800F1F192 /* Repository */,
+				C128CA7E295F009800F1F192 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C128CA79295F009800F1F192 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA7A295F009800F1F192 /* DataResponseDTO.swift */,
+				C128CA7B295F009800F1F192 /* CryptoDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C128CA7C295F009800F1F192 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA7D295F009800F1F192 /* CryptoRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		C128CA7E295F009800F1F192 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA7F295F009800F1F192 /* CryptoNetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C128CA87295F00BE00F1F192 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA8B295F00BE00F1F192 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C128CA8B295F00BE00F1F192 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA8C295F00BE00F1F192 /* CryptoUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +268,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C109EF9229523AAB00FC266C /* AppDelegate.swift in Sources */,
+				C128CA85295F009800F1F192 /* CryptoNetworkClient.swift in Sources */,
+				C128CA83295F009800F1F192 /* CryptoDTO.swift in Sources */,
 				C112035F295C9308002DFF3A /* HomeViewModel.swift in Sources */,
 				C1120357295C92CF002DFF3A /* Container.swift in Sources */,
 				C1120361295C9312002DFF3A /* HomeProtocols.swift in Sources */,
 				C109EF9429523AAB00FC266C /* SceneDelegate.swift in Sources */,
+				C128CA8F295F00BE00F1F192 /* CryptoUseCase.swift in Sources */,
+				C128CA84295F009800F1F192 /* CryptoRepository.swift in Sources */,
 				C109EF9C29523AAB00FC266C /* ios_combine.xcdatamodeld in Sources */,
+				C128CA82295F009800F1F192 /* DataResponseDTO.swift in Sources */,
+				C128CA77295EFDF500F1F192 /* HomeBuilder.swift in Sources */,
 				C1120363295C931C002DFF3A /* HomeRouter.swift in Sources */,
 				C112035D295C92FE002DFF3A /* HomeViewController.swift in Sources */,
 			);
@@ -349,7 +421,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R88CDNMKLQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ios-combine/Info.plist";
+				INFOPLIST_FILE = "ios-combine/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -377,7 +449,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R88CDNMKLQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ios-combine/Info.plist";
+				INFOPLIST_FILE = "ios-combine/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
