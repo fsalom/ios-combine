@@ -9,10 +9,12 @@ import Foundation
 import Combine
 
 protocol HomeViewModelProtocol {
-    @Published (set) var response: Response? { get set }
-
-    var infoUpdated: (() -> Void)? { get set }
-    var errorOcurred: ((Error) -> Void)? { get set }
+    // Define name (wrapped value)
+    var cryptos: [CryptoDTO] { get }
+    // Define name Published property wrapper
+    var cryptosPublished: Published<[CryptoDTO]> { get }
+    // Define name publisher
+    var cryptosPublisher: Published<[CryptoDTO]>.Publisher { get }
 
     func viewDidLoad()
     func viewDidAppear()

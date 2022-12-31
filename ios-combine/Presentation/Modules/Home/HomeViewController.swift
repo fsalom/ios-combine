@@ -13,7 +13,17 @@ final class HomeViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     var viewModel: HomeViewModelProtocol!
 
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required public init?(coder: NSCoder) {
+        return nil
+    }
+    
     override func viewDidLoad() {
+        viewModel.viewDidLoad()
+        setupBindings()
         super.viewDidLoad()
     }
 
@@ -26,10 +36,11 @@ final class HomeViewController: UIViewController {
     }
 
     func setupBindings() {
-        viewModel.$response
+        viewModel.cryptosPublisher
                     .receive(on: DispatchQueue.main)
                     .sink(receiveValue: { (response) in
-                        //self.label.text = response.message
+                        print("COMBINE")
+                        print(response)
                     })
                     .store(in: &cancellables)
     }

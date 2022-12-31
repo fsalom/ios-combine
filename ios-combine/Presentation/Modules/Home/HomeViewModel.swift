@@ -8,21 +8,22 @@
 import Foundation
 import Combine
 
-final class PostsViewModel: ObservableObject {
-    @Published private(set) var response: Response?
-
-    var infoUpdated: (() -> Void)?
+final class HomeViewModel: HomeViewModelProtocol, ObservableObject {
+    @Published var cryptos = [CryptoDTO]()
+    var cryptosPublished: Published<[CryptoDTO]> { _cryptos }
+    var cryptosPublisher: Published<[CryptoDTO]>.Publisher { $cryptos }
+    private var disposables = Set<AnyCancellable>()
 
     let router: HomeRouterProtocol
+    let useCase: CryptoUseCaseProtocol
 
-    var configurationsUpdated: (() -> Void)?
-    var errorOcurred: ((Error) -> Void)?
-
-    init(router: HomeRouterProtocol) {
+    init(router: HomeRouterProtocol, cryptoUseCase: CryptoUseCaseProtocol) {
         self.router = router
+        self.useCase = cryptoUseCase
     }
 
     func viewDidLoad() {
+        fetchData()
     }
 
     func viewDidAppear() {
@@ -31,16 +32,23 @@ final class PostsViewModel: ObservableObject {
     func viewDidDisappear() {
     }
 
-    func fetch() {
-        let url = URL(string: "https://example.com/api/data")!
-        URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: Response.self, decoder: JSONDecoder())
-            .sink(receiveCompletion: { (completion) in
-                // Maneja cualquier error o compleción aquí
-            }, receiveValue: { [weak self] (response) in
-                self?.response = response
+    func fetchData() {
+        useCase.getList()
+            .receive(on: DispatchQueue.main)
+            .sink(
+              receiveCompletion: { [weak self] value in
+                guard let self = self else { return }
+                switch value {
+                case .failure:
+                  self.cryptos = []
+                case .finished:
+                  break
+                }
+              },
+              receiveValue: { [weak self] forecast in
+                guard let self = self else { return }
+                self.cryptos = forecast
             })
-            .store(in: &cancellables)
+            .store(in: &disposables)
     }
 }
