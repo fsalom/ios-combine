@@ -24,6 +24,8 @@
 		C128CA84295F009800F1F192 /* CryptoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA7D295F009800F1F192 /* CryptoRepository.swift */; };
 		C128CA85295F009800F1F192 /* CryptoNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA7F295F009800F1F192 /* CryptoNetworkClient.swift */; };
 		C128CA8F295F00BE00F1F192 /* CryptoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA8C295F00BE00F1F192 /* CryptoUseCase.swift */; };
+		C128CA932960347100F1F192 /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C128CA912960347100F1F192 /* CryptoCell.swift */; };
+		C128CA942960347100F1F192 /* CryptoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C128CA922960347100F1F192 /* CryptoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		C128CA7D295F009800F1F192 /* CryptoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoRepository.swift; sourceTree = "<group>"; };
 		C128CA7F295F009800F1F192 /* CryptoNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoNetworkClient.swift; sourceTree = "<group>"; };
 		C128CA8C295F00BE00F1F192 /* CryptoUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUseCase.swift; sourceTree = "<group>"; };
+		C128CA912960347100F1F192 /* CryptoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
+		C128CA922960347100F1F192 /* CryptoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CryptoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		C112035B295C92E9002DFF3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C128CA902960347100F1F192 /* Cell */,
 				C112035C295C92FE002DFF3A /* HomeViewController.swift */,
 				C112035E295C9308002DFF3A /* HomeViewModel.swift */,
 				C1120360295C9312002DFF3A /* HomeProtocols.swift */,
@@ -196,6 +201,15 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
+		C128CA902960347100F1F192 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C128CA912960347100F1F192 /* CryptoCell.swift */,
+				C128CA922960347100F1F192 /* CryptoCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C128CA942960347100F1F192 /* CryptoCell.xib in Resources */,
 				C109EFA129523AAB00FC266C /* LaunchScreen.storyboard in Resources */,
 				C109EF9E29523AAB00FC266C /* Assets.xcassets in Resources */,
 				C1120365295C932C002DFF3A /* HomeViewController.xib in Resources */,
@@ -269,6 +284,7 @@
 			files = (
 				C109EF9229523AAB00FC266C /* AppDelegate.swift in Sources */,
 				C128CA85295F009800F1F192 /* CryptoNetworkClient.swift in Sources */,
+				C128CA932960347100F1F192 /* CryptoCell.swift in Sources */,
 				C128CA83295F009800F1F192 /* CryptoDTO.swift in Sources */,
 				C112035F295C9308002DFF3A /* HomeViewModel.swift in Sources */,
 				C1120357295C92CF002DFF3A /* Container.swift in Sources */,
