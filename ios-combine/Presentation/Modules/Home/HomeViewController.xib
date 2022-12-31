@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ios_combine" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="hbJ-z2-bhn" id="FI0-da-zz7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="aur-3B-hHe"/>
             </connections>
         </placeholder>
@@ -17,9 +18,21 @@
         <view contentMode="scaleToFill" restorationIdentifier="HomeViewController" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hbJ-z2-bhn">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="128" y="21"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hbJ-z2-bhn" secondAttribute="bottom" id="3zQ-Ub-g1I"/>
+                <constraint firstItem="hbJ-z2-bhn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GWY-OY-dJ0"/>
+                <constraint firstItem="hbJ-z2-bhn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="V8h-za-KVp"/>
+                <constraint firstItem="hbJ-z2-bhn" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="VYe-dK-bT2"/>
+            </constraints>
+            <point key="canvasLocation" x="127.48091603053435" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
