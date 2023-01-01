@@ -41,8 +41,6 @@ final class HomeViewController: UIViewController {
         viewModel.cryptosPublisher
                     .receive(on: DispatchQueue.main)
                     .sink(receiveValue: { (response) in
-                        print("COMBINE")
-                        print(response)
                         self.tableView.reloadData()
                     })
                     .store(in: &cancellables)
