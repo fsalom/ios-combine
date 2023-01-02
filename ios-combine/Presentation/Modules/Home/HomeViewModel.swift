@@ -34,13 +34,13 @@ final class HomeViewModel: HomeViewModelProtocol, ObservableObject {
                 switch value {
                 case .failure:
                   self.cryptos = []
-                case .finished:
+                case .finished:                    
                   break
                 }
               },
-              receiveValue: { [weak self] forecast in
+              receiveValue: { [weak self] listOfCryptos in
                 guard let self = self else { return }
-                self.cryptos = forecast
+                self.cryptos = listOfCryptos
             })
             .store(in: &disposables)
     }

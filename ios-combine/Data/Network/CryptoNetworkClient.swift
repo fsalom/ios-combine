@@ -34,9 +34,11 @@ extension CryptoNetworkClient: CryptoNetworkClientProtocol {
                         print("☎️ Llamada para obtener \(json.data?.count ?? 0) cryptos")
                         return json.data ?? []
                     } catch {
+                        print("💥 ERROR: deconding \(error)")
                         throw CryptoNetworkError.decodeError
                     }
                 } else {
+                    print("💥 ERROR: badResponse")
                     throw CryptoNetworkError.badResponse
                 }
             }
