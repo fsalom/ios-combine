@@ -1,10 +1,3 @@
-//
-//  CryptoRepository.swift
-//  coredatasample
-//
-//  Created by Fernando Salom Carratala on 26/11/22.
-//
-
 import Combine
 
 protocol CryptoRepositoryProtocol {

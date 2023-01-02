@@ -1,10 +1,3 @@
-//
-//  CryptoUseCase.swift
-//  coredatasample
-//
-//  Created by Fernando Salom Carratala on 26/11/22.
-//
-
 import Foundation
 import Combine
 

@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  ios-combine
-//
-//  Created by Fernando Salom Carratala on 20/12/22.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

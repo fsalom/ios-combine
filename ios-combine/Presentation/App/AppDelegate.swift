@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  ios-combine
-//
-//  Created by Fernando Salom Carratala on 20/12/22.
-//
-
 import UIKit
 import CoreData
 

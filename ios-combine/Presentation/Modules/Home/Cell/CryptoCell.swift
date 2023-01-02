@@ -1,10 +1,3 @@
-//
-//  CryptoCell.swift
-//  coredatasample
-//
-//  Created by Fernando Salom Carratala on 26/11/22.
-//
-
 import UIKit
 
 class CryptoCell: UITableViewCell {

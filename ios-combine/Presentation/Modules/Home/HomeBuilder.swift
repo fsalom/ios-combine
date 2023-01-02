@@ -1,10 +1,3 @@
-//
-//  HomeBuilder.swift
-//  ios-combine
-//
-//  Created by Fernando Salom Carratala on 30/12/22.
-//
-
 import Foundation
 
 final class HomeBuilder: HomeBuilderProtocol {
