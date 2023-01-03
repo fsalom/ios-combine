@@ -39,7 +39,7 @@ extension CryptoNetworkClient: CryptoNetworkClientProtocol {
                         throw CryptoNetworkError.decodeError
                     }
                 } else {
-                    print("💥 ERROR: badResponse")
+                    print("💥 ERROR: badResponse code: \(response.statusCode)")
                     throw CryptoNetworkError.badResponse
                 }
             }

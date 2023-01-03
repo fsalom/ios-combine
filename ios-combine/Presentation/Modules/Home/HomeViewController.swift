@@ -5,6 +5,8 @@ import Combine
 final class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var cancellables = Set<AnyCancellable>()
+
+    let refreshControl = UIRefreshControl()
     var viewModel: HomeViewModelProtocol!
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -19,6 +21,7 @@ final class HomeViewController: UIViewController {
         viewModel.viewDidLoad()
         setupBindings()
         configure()
+        setupUI()
         super.viewDidLoad()
     }
 
@@ -28,6 +31,15 @@ final class HomeViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+    }
+
+    func setupUI() {
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh() {
+        viewModel.fetchData()
     }
 
     func setupBindings() {
@@ -41,6 +53,7 @@ final class HomeViewController: UIViewController {
                     break
                 }
             }, receiveValue: { (response) in
+                self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
             })
             .store(in: &cancellables)
@@ -49,9 +62,9 @@ final class HomeViewController: UIViewController {
     func configure() {
         tableView.dataSource = self
         tableView.delegate = self
-        self.tableView.register(UINib(nibName: "CryptoCell", bundle: nil),
-                                forCellReuseIdentifier: "CryptoCell")
-        self.tableView.rowHeight = 60
+        tableView.register(UINib(nibName: "CryptoCell", bundle: nil),
+                           forCellReuseIdentifier: "CryptoCell")
+        tableView.rowHeight = 60
     }
 }
 
@@ -61,7 +74,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoCell", for: indexPath) as! CryptoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoCell",
+                                                 for: indexPath) as! CryptoCell
         cell.crypto = viewModel.cryptos[indexPath.row]
         return cell
     }
