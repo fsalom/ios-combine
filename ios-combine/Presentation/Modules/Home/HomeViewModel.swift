@@ -34,7 +34,7 @@ final class HomeViewModel: HomeViewModelProtocol, ObservableObject {
                 switch value {
                 case .failure:
                   self.cryptos = []
-                case .finished:                    
+                case .finished:
                   break
                 }
               },

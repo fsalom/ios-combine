@@ -22,6 +22,7 @@ extension CryptoNetworkClient: CryptoNetworkClientProtocol {
     func getList() -> AnyPublisher<[CryptoDTO], Error> {
         let url = URL(string: "https://api.coincap.io/v2/assets")!
         let request = URLRequest(url: url)
+        print("☎️ Llamada a \(url.absoluteString)")
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response in
                 guard let response = response as? HTTPURLResponse else {
@@ -31,7 +32,7 @@ extension CryptoNetworkClient: CryptoNetworkClientProtocol {
                     let decoder = JSONDecoder()
                     do {
                         let json = try decoder.decode(DataNetworkResponse<[CryptoDTO]>.self, from: data)
-                        print("☎️ Llamada para obtener \(json.data?.count ?? 0) cryptos")
+                        print("📥 Recibimos \(json.data?.count ?? 0) cryptos")
                         return json.data ?? []
                     } catch {
                         print("💥 ERROR: deconding \(error)")

@@ -32,11 +32,18 @@ final class HomeViewController: UIViewController {
 
     func setupBindings() {
         viewModel.cryptosPublisher
-                    .receive(on: DispatchQueue.main)
-                    .sink(receiveValue: { (response) in
-                        self.tableView.reloadData()
-                    })
-                    .store(in: &cancellables)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error)
+                case .finished:
+                    break
+                }
+            }, receiveValue: { (response) in
+                self.tableView.reloadData()
+            })
+            .store(in: &cancellables)
     }
 
     func configure() {
