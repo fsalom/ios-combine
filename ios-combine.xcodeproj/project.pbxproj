@@ -84,9 +84,9 @@
 			children = (
 				C128CA87295F00BE00F1F192 /* Domain */,
 				C128CA78295F009800F1F192 /* Data */,
+				C1120355295C92C2002DFF3A /* DI */,
 				C1120366295C942A002DFF3A /* Resources */,
 				C1120358295C92D2002DFF3A /* Presentation */,
-				C1120355295C92C2002DFF3A /* DI */,
 			);
 			path = "ios-combine";
 			sourceTree = "<group>";
